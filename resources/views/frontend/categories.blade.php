@@ -7,9 +7,7 @@
 <!-- Hero Section -->
 <section class="relative bg-gray-900 text-white py-16 mb-12">
     <div class="absolute inset-0">
-        <img src="https://images.pexels.com/photos/1484893/pexels-photo-1484893.jpeg?auto=compress&cs=tinysrgb&w=1920" 
-             alt="Bike Categories Banner" 
-             class="w-full h-full object-cover opacity-40">
+        
     </div>
     <div class="relative z-10 text-center">
         <h1 class="text-4xl font-bold mb-4">Explore Our Categories</h1>

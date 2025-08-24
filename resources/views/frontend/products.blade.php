@@ -12,7 +12,7 @@
                 <a href="#products" class="bg-red-600 hover:bg-red-700 px-6 py-3 rounded text-lg font-semibold transition">Shop Now</a>
             </div>
             <div class="mt-8 lg:mt-0 lg:ml-12 flex-shrink-0">
-                <img src="https://cdn.pixabay.com/photo/2016/11/29/01/17/adventure-1868726_1280.jpg" alt="Bike" class="rounded-lg shadow-lg w-full max-w-md">
+                
             </div>
         </div>
     </div>

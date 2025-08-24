@@ -6,9 +6,7 @@
 <!-- Hero Banner -->
 <section class="relative bg-gray-900 text-white">
     <div class="absolute inset-0">
-        <img class="w-full h-full object-cover opacity-60"
-             src="https://images.pexels.com/photos/296703/pexels-photo-296703.jpeg?auto=compress&cs=tinysrgb&w=1600"
-             alt="Ride Training">
+        
     </div>
     <div class="relative container mx-auto px-6 py-20 text-center">
         <h1 class="text-4xl md:text-5xl font-bold mb-4">Book Your Ride Training</h1>
@@ -33,14 +31,14 @@
                 <p class="text-gray-600">Learn from certified and experienced riding professionals.</p>
             </div>
             <div class="p-6 border rounded-lg shadow hover:shadow-lg transition">
-                <img src="https://images.pexels.com/photos/210147/pexels-photo-210147.jpeg?auto=compress&cs=tinysrgb&w=600"
+                <img src="https://rapidrides.pk/wp-content/uploads/2024/07/450SR-S-Zircon-Black.png"
                      alt="Safety Gear"
                      class="w-full h-48 object-cover rounded-md mb-4">
                 <h3 class="text-lg font-semibold mb-2">Safety First</h3>
                 <p class="text-gray-600">We provide safety gear and focus on responsible riding practices.</p>
             </div>
             <div class="p-6 border rounded-lg shadow hover:shadow-lg transition">
-                <img src="https://images.pexels.com/photos/207779/pexels-photo-207779.jpeg?auto=compress&cs=tinysrgb&w=600"
+                <img src="https://images.creativefabrica.com/products/previews/2023/08/25/O5fAi1nmx/2USqKIvbfdI1sewvSZnlz0EAgpi-mobile.jpg"
                      alt="Fun Rides"
                      class="w-full h-48 object-cover rounded-md mb-4">
                 <h3 class="text-lg font-semibold mb-2">Fun & Adventure</h3>
