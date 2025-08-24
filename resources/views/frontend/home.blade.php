@@ -43,7 +43,7 @@
                         <h3 class="text-lg font-semibold mb-2">{{ $product->name }}</h3>
                         <p class="text-gray-600 mb-4">{{ Str::limit($product->description, 60) }}</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-red-600 font-bold">${{ number_format($product->price, 2) }}</span>
+                            <span class="text-red-600 font-bold">PKR{{ number_format($product->price, 2) }}</span>
                             <a href="{{ route('frontend.products.show', $product->slug) }}" class="mt-4 inline-block bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded transition">View</a>
 
                         </div>

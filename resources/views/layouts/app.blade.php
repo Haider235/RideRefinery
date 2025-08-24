@@ -52,6 +52,9 @@
                         <li class="px-6 py-3 hover:bg-gray-700">
                             <a class="block" href="{{ route('admin.event-registrations.index') }}">Event Registrations</a>
                         </li>
+                        <li class="px-6 py-3 hover:bg-gray-700">
+                            <a class="block" href="{{ route('admin.support.index') }}">Customer Supports</a>
+                        </li>
                     </ul>
                 </nav>
             </aside>

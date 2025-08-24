@@ -12,7 +12,7 @@
         <p><strong>Phone:</strong> {{ $order->phone }}</p>
         <p><strong>Address:</strong> {{ $order->address }}, {{ $order->city }}, {{ $order->zip }}</p>
         <p><strong>Payment Method:</strong> {{ ucfirst($order->payment_method) }}</p>
-        <p><strong>Amount:</strong> ${{ number_format($order->amount, 2) }}</p>
+        <p><strong>Amount:</strong> PKR{{ number_format($order->amount, 2) }}</p>
         <p><strong>Status:</strong> {{ ucfirst($order->status) }}</p>
         @if($order->screenshot_path)
             <p><strong>Screenshot:</strong> <a href="{{ asset($order->screenshot_path) }}" target="_blank" class="text-red-600 hover:underline">View</a></p>

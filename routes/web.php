@@ -11,6 +11,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Frontend\{
     HomeController,
     ProductController as FrontendProductController,
+    SparePartController as FrontendSparePartController,
     CartController,
     BrandController as FrontendBrandController,
     CategoryController as FrontendCategoryController,
@@ -37,6 +38,7 @@ use App\Http\Controllers\Customer\{
 use App\Http\Controllers\Admin\{
     BrandController as AdminBrandController,
     ProductController as AdminProductController,
+    SparePartController as AdminSparePartController,
     CategoryController as AdminCategoryController,
     Auth\LoginController as AdminLoginController,
     OrderController as AdminOrderController,
@@ -54,6 +56,13 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::prefix('products')->group(function () {
     Route::get('/', [FrontendProductController::class, 'index'])->name('frontend.products.index');
     Route::get('{slug}', [FrontendProductController::class, 'show'])->name('frontend.products.show');
+});
+
+// Spare Parts
+
+Route::prefix('spare-parts')->group(function () {
+    Route::get('/', [FrontendProductController::class, 'spareParts'])->name('frontend.spareparts.index');
+    Route::get('{slug}', [FrontendProductController::class, 'showSparePart'])->name('frontend.spareparts.show');
 });
 
 // Cart
@@ -89,6 +98,10 @@ Route::post('ride-booking', [RideBookingController::class, 'store'])->name('ride
 Route::get('maintenance-booking', fn() => view('frontend.maintenance'))->name('maintenance');
 Route::post('maintenance-booking', [MaintenanceBookingController::class, 'store'])->name('maintenance.store');
 
+// Support
+Route::get('/support', [\App\Http\Controllers\Frontend\SupportTicketController::class, 'create'])->name('support.create');
+Route::post('/support', [\App\Http\Controllers\Frontend\SupportTicketController::class, 'store'])->name('support.store');
+
 // Events (Frontend)
 Route::prefix('events')->group(function () {
     Route::get('/', [FrontendEventController::class, 'index'])->name('events');
@@ -96,12 +109,9 @@ Route::prefix('events')->group(function () {
     Route::post('{id}/register', [FrontendEventController::class, 'register'])->name('event.register');
 });
 
-// routes/web.php or api.php
-Route::post('/event-location/store', [EventLocationController::class, 'store'])->name('event-location.store');
-
-
+// Event Locations
 use App\Http\Controllers\Frontend\EventLocationController;
-
+Route::post('/event-location/store', [EventLocationController::class, 'store'])->name('event-location.store');
 Route::middleware('auth:customer')->group(function () {
     Route::post('/event/{id}/update-location', [EventLocationController::class, 'update'])->name('event.update-location');
 });
@@ -109,11 +119,8 @@ Route::middleware('auth:customer')->group(function () {
 // routes/web.php (or routes/admin.php if you have separate admin routes)
 use App\Http\Controllers\Admin\EventMapController;
 
-
-
 // ================== Customer Routes ==================
 Route::prefix('customer')->name('customer.')->group(function () {
-
     // Guest Routes
     Route::middleware('guest:customer')->group(function () {
         Route::get('login', [CustomerLoginController::class, 'showLoginForm'])->name('login');
@@ -125,7 +132,6 @@ Route::prefix('customer')->name('customer.')->group(function () {
     // Authenticated Customer Routes
     Route::middleware('auth:customer')->group(function () {
         Route::post('logout', [CustomerLoginController::class, 'logout'])->name('logout');
-
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::get('orders', [OrderController::class, 'index'])->name('orders');
         Route::get('orders/{id}', [OrderController::class, 'show'])->name('orders.show');
@@ -142,7 +148,6 @@ Route::prefix('customer')->name('customer.')->group(function () {
 // ================== Authenticated User Profile ==================
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', fn() => view('dashboard'))->name('dashboard');
-
     Route::prefix('profile')->group(function () {
         Route::get('/', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/', [ProfileController::class, 'update'])->name('profile.update');
@@ -152,19 +157,22 @@ Route::middleware(['auth'])->group(function () {
 
 // ================== Admin Routes ==================
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
-
     Route::resources([
         'products' => AdminProductController::class,
+        'spare-parts' => AdminSparePartController::class,
         'orders' => AdminOrderController::class,
         'customers' => CustomerController::class,
         'brands' => AdminBrandController::class,
         'categories' => AdminCategoryController::class,
         'events' => AdminEventController::class,
     ]);
+
     Route::get('events/{id}/map', [EventMapController::class, 'show'])->name('events.map');
     Route::get('consultations', [AdminConsultationController::class, 'index'])->name('consultations.index');
     Route::get('ride-bookings', [AdminRideBookingController::class, 'index'])->name('ride-bookings.index');
     Route::get('event-registrations', [EventRegistrationController::class, 'index'])->name('event-registrations.index');
+    Route::get('/support', [\App\Http\Controllers\Admin\SupportTicketController::class, 'index'])->name('support.index');
+    Route::get('/support/{supportTicket}', [\App\Http\Controllers\Admin\SupportTicketController::class, 'show'])->name('support.show');
 });
 
 require __DIR__.'/auth.php';

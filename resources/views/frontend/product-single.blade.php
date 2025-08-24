@@ -21,7 +21,7 @@
         <div>
             <h1 class="text-3xl font-bold mb-4">{{ $product->name }}</h1>
             <p class="text-gray-600 mb-6">{{ $product->description }}</p>
-            <span class="text-2xl text-red-600 font-bold mb-6 block">${{ number_format($product->price, 2) }}</span>
+            <span class="text-2xl text-red-600 font-bold mb-6 block">PKR{{ number_format($product->price, 2) }}</span>
             
             <form method="POST" action="{{ route('cart.add', $product->id) }}">
                 @csrf

@@ -1,24 +1,24 @@
 @extends('layouts.frontend')
 
-@section('title', 'Shop - Ride Refinery')
+@section('title', 'Spare Parts - Ride Refinery')
 
 @section('content')
     <!-- Page Banner -->
     <div class="relative bg-gray-900">
         <div class="container mx-auto px-6 py-16 lg:flex lg:items-center lg:justify-between">
             <div class="max-w-lg text-white">
-                <h1 class="text-4xl lg:text-5xl font-bold mb-4">Our Latest Bikes & Accessories</h1>
-                <p class="text-gray-300 mb-6">Explore our wide range of premium bikes, riding gear, and accessories. Built for speed, comfort, and style.</p>
-                <a href="#products" class="bg-red-600 hover:bg-red-700 px-6 py-3 rounded text-lg font-semibold transition">Shop Now</a>
+                <h1 class="text-4xl lg:text-5xl font-bold mb-4">Spare Parts & Components</h1>
+                <p class="text-gray-300 mb-6">Find genuine parts to keep your ride in top condition. Quality you can trust.</p>
+                <a href="#products" class="bg-red-600 hover:bg-red-700 px-6 py-3 rounded text-lg font-semibold transition">Shop Spare Parts</a>
             </div>
             <div class="mt-8 lg:mt-0 lg:ml-12 flex-shrink-0">
-                
+                <img src="https://cdn.pixabay.com/photo/2016/11/18/15/07/gears-1837459_1280.jpg" alt="Spare Parts" class="rounded-lg shadow-lg w-full max-w-md">
             </div>
         </div>
     </div>
 
     <!-- Filters -->
-    <form method="GET" action="{{ route('frontend.products.index') }}">
+    <form method="GET" action="{{ route('frontend.spareparts.index') }}">
         <div class="container mx-auto px-6 py-8 flex flex-wrap gap-6 items-center justify-between border-b border-gray-200">
             <div class="flex items-center gap-4">
                 <label for="sort" class="text-gray-700 font-semibold">Sort By:</label>
@@ -54,12 +54,11 @@
                     <div class="p-4">
                         <h3 class="text-lg font-semibold text-gray-900">{{ $product->name }}</h3>
                         <p class="text-red-600 font-bold mt-2">PKR{{ number_format($product->price, 2) }}</p>
-<a href="{{ route('frontend.products.show', $product->slug) }}" class="mt-4 inline-block bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded transition">View Details</a>
-
+                        <a href="{{ route('frontend.products.show', $product->slug) }}" class="mt-4 inline-block bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded transition">View Details</a>
                     </div>
                 </div>
             @empty
-                <p class="col-span-4 text-center text-gray-500">No products found.</p>
+                <p class="col-span-4 text-center text-gray-500">No spare parts found.</p>
             @endforelse
         </div>
 

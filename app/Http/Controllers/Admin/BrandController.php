@@ -35,7 +35,7 @@ class BrandController extends Controller
 
         Brand::create($data);
 
-        return redirect()->route('brands.index')
+        return redirect()->route('admin.brands.index')
             ->with('success', 'Brand created successfully.');
     }
 
@@ -60,7 +60,7 @@ class BrandController extends Controller
 
         $brand->update($data);
 
-        return redirect()->route('brands.index')
+        return redirect()->route('admin.brands.index')
             ->with('success', 'Brand updated successfully.');
     }
 
@@ -69,7 +69,7 @@ class BrandController extends Controller
         $this->deleteLogo($brand->logo);
         $brand->delete();
 
-        return redirect()->route('brands.index')
+        return redirect()->route('admin.brands.index')
             ->with('success', 'Brand deleted successfully.');
     }
 

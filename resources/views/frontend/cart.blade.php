@@ -29,7 +29,7 @@
                                 <img class="w-20 h-20 rounded-lg object-cover" src="{{ asset('storage/' . $item['image']) }}" alt="{{ $item['name'] }}">
                                 <span class="font-medium text-gray-900">{{ $item['name'] }}</span>
                             </td>
-                            <td class="py-4 px-6 text-center text-gray-900 font-semibold">${{ number_format($item['price'], 2) }}</td>
+                            <td class="py-4 px-6 text-center text-gray-900 font-semibold">PKR{{ number_format($item['price'], 2) }}</td>
                             <td class="py-4 px-6 text-center">
                                 <form method="POST" action="{{ route('cart.update', $id) }}" class="flex items-center justify-center space-x-2">
                                     @csrf
@@ -37,7 +37,7 @@
                                     <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-md transition">Update</button>
                                 </form>
                             </td>
-                            <td class="py-4 px-6 text-center text-gray-900 font-semibold">${{ number_format($total, 2) }}</td>
+                            <td class="py-4 px-6 text-center text-gray-900 font-semibold">PKR{{ number_format($total, 2) }}</td>
                             <td class="py-4 px-6 text-center">
                                 <form method="POST" action="{{ route('cart.remove', $id) }}">
                                     @csrf
@@ -62,7 +62,7 @@
                 <h2 class="text-2xl font-bold text-gray-900">Order Summary</h2>
                 <div class="flex justify-between text-gray-700 font-medium text-lg">
                     <span>Subtotal:</span>
-                    <span>${{ number_format($subtotal, 2) }}</span>
+                    <span>PKR{{ number_format($subtotal, 2) }}</span>
                 </div>
                 @php
                     $tax = $subtotal * 0.05; // Example 5% tax
@@ -70,11 +70,11 @@
                 @endphp
                 <div class="flex justify-between text-gray-700 font-medium text-lg">
                     <span>Tax:</span>
-                    <span>${{ number_format($tax, 2) }}</span>
+                    <span>PKR{{ number_format($tax, 2) }}</span>
                 </div>
                 <div class="flex justify-between text-gray-900 font-bold text-xl">
                     <span>Total:</span>
-                    <span>${{ number_format($total, 2) }}</span>
+                    <span>PKR{{ number_format($total, 2) }}</span>
                 </div>
                 <a href="{{ url('/checkout') }}" class="block bg-red-600 hover:bg-red-700 text-white text-center font-semibold py-3 rounded-xl transition shadow-md hover:shadow-lg">
                     Proceed to Checkout
