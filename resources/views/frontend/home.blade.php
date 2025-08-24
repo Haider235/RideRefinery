@@ -7,7 +7,7 @@
 <!-- Hero Section -->
 <section class="relative bg-gray-900 text-white">
     <div class="absolute inset-0">
-        <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1600&q=80"
+        <img src="https://superstarmotorcycle.com/cdn/shop/files/2.webp"
              alt="Motorcycle Banner"
              class="w-full h-full object-cover opacity-30">
     </div>

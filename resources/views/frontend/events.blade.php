@@ -5,7 +5,7 @@
 @section('content')
     <!-- Page Banner -->
     <section class="relative bg-gray-900 text-white">
-        <img src="https://images.unsplash.com/photo-1533419026881-d2dd01ddc8e1?auto=format&fit=crop&w=1920&q=80"
+        <img src="https://superstarmotorcycle.com/cdn/shop/files/4.webp"
              alt="Events Banner"
              class="absolute inset-0 w-full h-full object-cover opacity-50">
         <div class="relative container mx-auto px-6 py-20 text-center">

@@ -6,9 +6,7 @@
     <!-- Banner -->
     <section class="relative bg-gray-900 text-white">
         <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1558980664-10ea24e7cc9a?auto=format&fit=crop&w=1920&q=80" 
-                 alt="Bike Brands Banner" 
-                 class="w-full h-full object-cover opacity-50">
+            
         </div>
         <div class="relative container mx-auto px-6 py-20 text-center">
             <h1 class="text-4xl md:text-5xl font-bold">Motorbike Brands</h1>

@@ -7,7 +7,7 @@
 
 <section class="relative bg-gray-900 text-white">
     <div class="absolute inset-0">
-        <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=1500&q=80" 
+        <img src="https://superstarmotorcycle.com/cdn/shop/files/3.webp" 
              alt="Consultation Banner" class="w-full h-full object-cover opacity-60">
     </div>
     <div class="relative container mx-auto py-20 text-center">
@@ -65,7 +65,9 @@
                         <option value="">Select a Service</option>
                         <option value="purchase">Bike Purchase Advice</option>
                         <option value="maintenance">Maintenance Consultation</option>
-                        <option value="riding">Riding Lessons Guidance</option>
+                        <option value="riding">Ride Training Guidance</option>
+                        
+                        
                     </select>
                 </div>
                 <div>

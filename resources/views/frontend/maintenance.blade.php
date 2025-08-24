@@ -7,7 +7,7 @@
 <section class="relative bg-gray-900 text-white">
     <div class="absolute inset-0">
         <img class="w-full h-full object-cover opacity-60"
-             src="https://images.pexels.com/photos/3803866/pexels-photo-3803866.jpeg?auto=compress&cs=tinysrgb&w=1600"
+             src="https://superstarmotorcycle.com/cdn/shop/files/1.webp"
              alt="Bike Maintenance">
     </div>
     <div class="relative container mx-auto px-6 py-20 text-center">
@@ -71,10 +71,16 @@
                     <select id="service_type" name="service_type" required
                         class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500">
                         <option value="">Select Service</option>
-                        <option value="general" {{ old('service_type') == 'general' ? 'selected' : '' }}>General Service</option>
-                        <option value="engine" {{ old('service_type') == 'engine' ? 'selected' : '' }}>Engine Check</option>
-                        <option value="brakes" {{ old('service_type') == 'brakes' ? 'selected' : '' }}>Brake Service</option>
+                        <option value="chain" {{ old('service_type') == 'chain' ? 'selected' : '' }}>Chain and Sprocket Replacement</option>
+                        <option value="engine" {{ old('service_type') == 'engine' ? 'selected' : '' }}>Engine Repair</option>
+                        <option value="brakes" {{ old('service_type') == 'brakes' ? 'selected' : '' }}>Brake System</option>
                         <option value="tuning" {{ old('service_type') == 'tuning' ? 'selected' : '' }}>Full Tuning</option>
+                        <option value="headlights" {{ old('service_type') == 'headlights' ? 'selected' : '' }}>Headlights and Electrical System Repair</option>
+                        <option value="paint" {{ old('service_type') == 'paint' ? 'selected' : '' }}>Paint and Customization</option>
+                        <option value="Spare" {{ old('service_type') == 'Spare' ? 'selected' : '' }}>Spare Parts and Accessories Installation</option>
+                        <option value="Tyre Alignment" {{ old('service_type') == 'TyreAlignment' ? 'selected' : '' }}>Tyre Alignment</option>
+                        <option value="Clutch" {{ old('service_type') == 'Clutch' ? 'selected' : '' }}>Clutch and Gearbox Service</option>
+                        <option value="oil" {{ old('service_type') == 'oil' ? 'selected' : '' }}>Oil and Filter Change</option>
                     </select>
                 </div>
 
