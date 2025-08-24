@@ -15,16 +15,18 @@ class ProductController extends Controller
         $query = Product::query()->active()->products(); // only normal products
 
         // Filter by category id
-        if ($request->filled('category')) {
-            $query->where('category_id', $request->category);
-        }
+if ($request->filled('category')) {
+    if (is_numeric($request->category)) {
+        // filter by category id
+        $query->where('category_id', $request->category);
+    } else {
+        // filter by category name
+        $query->whereHas('category', function ($q) use ($request) {
+            $q->where('name', $request->category);
+        });
+    }
+}
 
-        // Filter by category name (if you really want both)
-        if ($request->filled('category')) {
-            $query->whereHas('category', function ($q) use ($request) {
-                $q->where('name', $request->category);
-            });
-        }
 
         // Filter by brand name (?brand=Name)
         if ($request->filled('brand')) {
