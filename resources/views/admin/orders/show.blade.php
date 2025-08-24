@@ -29,7 +29,7 @@
 
     <div class="mb-4">
         <h2 class="font-semibold">Order Details</h2>
-        <p>Amount: ${{ $order->amount }}</p>
+        <p>Amount: PKR{{ $order->amount }}</p>
         <p>Status: {{ $order->status }}</p>
     </div>
 

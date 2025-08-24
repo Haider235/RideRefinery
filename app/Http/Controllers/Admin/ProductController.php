@@ -14,7 +14,9 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::with(['category', 'brand'])->latest()->paginate(10);
+        $products = Product::with(['category', 'brand'])
+            ->latest()->paginate(10);
+
         return view('admin.products.index', compact('products'));
     }
 
@@ -22,6 +24,7 @@ class ProductController extends Controller
     {
         $categories = Category::all();
         $brands = Brand::all();
+
         return view('admin.products.create', compact('categories', 'brands'));
     }
 
@@ -34,7 +37,8 @@ class ProductController extends Controller
             'description' => 'nullable|string',
             'price'       => 'required|numeric|min:0',
             'stock'       => 'required|integer|min:0',
-            'status'      => 'required|boolean',
+            'status'      => 'required', // keeping your 1/0 usage from blades
+            'product_type'=> 'required|in:product,spare_part',
             'image'       => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
         ]);
 
@@ -46,13 +50,15 @@ class ProductController extends Controller
 
         Product::create($validated);
 
-        return redirect()->route('products.index')->with('success', 'Product created successfully.');
+        // Note: your admin blades use 'admin.products.*' route names
+        return redirect()->route('admin.products.index')->with('success', 'Product created successfully.');
     }
 
     public function edit(Product $product)
     {
         $categories = Category::all();
         $brands = Brand::all();
+
         return view('admin.products.edit', compact('product', 'categories', 'brands'));
     }
 
@@ -65,7 +71,8 @@ class ProductController extends Controller
             'description' => 'nullable|string',
             'price'       => 'required|numeric|min:0',
             'stock'       => 'required|integer|min:0',
-            'status'      => 'required|boolean',
+            'status'      => 'required', // keeping your 1/0 usage
+            'product_type'=> 'required|in:product,spare_part',
             'image'       => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
         ]);
 
@@ -80,7 +87,7 @@ class ProductController extends Controller
 
         $product->update($validated);
 
-        return redirect()->route('products.index')->with('success', 'Product updated successfully.');
+        return redirect()->route('admin.products.index')->with('success', 'Product updated successfully.');
     }
 
     public function destroy(Product $product)
@@ -90,6 +97,7 @@ class ProductController extends Controller
         }
 
         $product->delete();
-        return redirect()->route('products.index')->with('success', 'Product deleted successfully.');
+
+        return redirect()->route('admin.products.index')->with('success', 'Product deleted successfully.');
     }
 }

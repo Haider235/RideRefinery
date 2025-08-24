@@ -68,7 +68,7 @@
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold mb-4">Join Our Community</h2>
             <p class="mb-6 text-lg">Become part of a passionate biking community and explore the world with us.</p>
-            <a href="{{ route('products') }}"
+            <a href="{{ route('frontend.products.index') }}"
                 class="bg-white text-red-600 px-6 py-3 rounded font-semibold hover:bg-gray-100 transition">
                 Shop Now
             </a>

@@ -12,6 +12,16 @@
             @error('name') <span class="text-red-500">{{ $message }}</span> @enderror
         </div>
 
+        {{-- Product Type --}}
+        <div class="mb-4">
+            <label class="block mb-1">Product Type</label>
+            <select name="product_type" class="w-full border px-3 py-2 rounded">
+                <option value="product" {{ old('product_type','product') === 'product' ? 'selected' : '' }}>Product</option>
+                <option value="spare_part" {{ old('product_type') === 'spare_part' ? 'selected' : '' }}>Spare Part</option>
+            </select>
+            @error('product_type') <span class="text-red-500">{{ $message }}</span> @enderror
+        </div>
+
         <div class="mb-4">
             <label class="block mb-1">Category</label>
             <select name="category_id" class="w-full border px-3 py-2 rounded">
@@ -58,7 +68,7 @@
         <div class="mb-4">
             <label class="block mb-1">Status</label>
             <select name="status" class="w-full border px-3 py-2 rounded">
-                <option value="1" {{ old('status') == 1 ? 'selected' : '' }}>Active</option>
+                <option value="1" {{ old('status', 1) == 1 ? 'selected' : '' }}>Active</option>
                 <option value="0" {{ old('status') == 0 ? 'selected' : '' }}>Inactive</option>
             </select>
             @error('status') <span class="text-red-500">{{ $message }}</span> @enderror

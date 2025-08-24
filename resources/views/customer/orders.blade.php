@@ -26,7 +26,7 @@
                             <td class="px-4 py-2">#{{ $order->id }}</td>
                             <td class="px-4 py-2">{{ $order->created_at->format('M d, Y') }}</td>
                             <td class="px-4 py-2">{{ ucfirst($order->status) }}</td>
-                            <td class="px-4 py-2">${{ number_format($order->amount, 2) }}</td>
+                            <td class="px-4 py-2">PKR{{ number_format($order->amount, 2) }}</td>
                             <td class="px-4 py-2">
                                 <a href="{{ route('customer.orders.show', $order->id) }}" class="text-red-600 hover:underline">
                                     View

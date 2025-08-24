@@ -21,7 +21,7 @@
                 <td class="border px-4 py-2">{{ $order->id }}</td>
                 <td class="border px-4 py-2">{{ $order->first_name }} {{ $order->last_name }}</td>
                 <td class="border px-4 py-2">{{ $order->email }}</td>
-                <td class="border px-4 py-2">${{ $order->amount }}</td>
+                <td class="border px-4 py-2">PKR{{ $order->amount }}</td>
                 <td class="border px-4 py-2 capitalize">{{ $order->status }}</td>
                 <td class="border px-4 py-2 space-x-2">
                     <a href="{{ route('admin.orders.show', $order) }}" class="text-blue-500">View</a>

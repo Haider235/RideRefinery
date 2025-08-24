@@ -17,6 +17,7 @@
             <tr>
                 <th class="border px-4 py-2">ID</th>
                 <th class="border px-4 py-2">Name</th>
+                <th class="border px-4 py-2">Type</th> {{-- NEW --}}
                 <th class="border px-4 py-2">Category</th>
                 <th class="border px-4 py-2">Brand</th>
                 <th class="border px-4 py-2">Price</th>
@@ -30,11 +31,14 @@
             <tr>
                 <td class="border px-4 py-2">{{ $product->id }}</td>
                 <td class="border px-4 py-2">{{ $product->name }}</td>
+                <td class="border px-4 py-2">
+                    {{ $product->product_type === \App\Models\Product::TYPE_SPAREPART ? 'Spare Part' : 'Product' }}
+                </td>
                 <td class="border px-4 py-2">{{ $product->category->name ?? '-' }}</td>
                 <td class="border px-4 py-2">{{ $product->brand->name ?? '-' }}</td>
-                <td class="border px-4 py-2">${{ $product->price }}</td>
+                <td class="border px-4 py-2">PKR{{ $product->price }}</td>
                 <td class="border px-4 py-2">{{ $product->stock }}</td>
-                <td class="border px-4 py-2">{{ $product->status ? 'Active' : 'Inactive' }}</td>
+                <td class="border px-4 py-2">{{ ($product->status==1 || $product->status==='active') ? 'Active' : 'Inactive' }}</td>
                 <td class="border px-4 py-2">
                     <a href="{{ route('admin.products.edit', $product) }}" class="text-blue-500 mr-2">Edit</a>
                     <form action="{{ route('admin.products.destroy', $product) }}" method="POST" class="inline">
@@ -46,7 +50,7 @@
             </tr>
             @empty
             <tr>
-                <td colspan="8" class="border px-4 py-2 text-center">No products found.</td>
+                <td colspan="9" class="border px-4 py-2 text-center">No products found.</td>
             </tr>
             @endforelse
         </tbody>

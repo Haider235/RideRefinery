@@ -1,5 +1,4 @@
 <x-app-layout>
-
 @section('content')
 <div class="container mx-auto p-6">
     <h1 class="text-2xl font-bold mb-6">Edit Product</h1>
@@ -8,14 +7,22 @@
         @csrf
         @method('PUT')
 
-        <!-- Name -->
         <div class="mb-4">
             <label class="block mb-1">Name</label>
             <input type="text" name="name" value="{{ old('name', $product->name) }}" class="w-full border px-3 py-2 rounded">
             @error('name') <span class="text-red-500">{{ $message }}</span> @enderror
         </div>
 
-        <!-- Category -->
+        {{-- Product Type --}}
+        <div class="mb-4">
+            <label class="block mb-1">Product Type</label>
+            <select name="product_type" class="w-full border px-3 py-2 rounded">
+                <option value="product" {{ old('product_type', $product->product_type) === 'product' ? 'selected' : '' }}>Product</option>
+                <option value="spare_part" {{ old('product_type', $product->product_type) === 'spare_part' ? 'selected' : '' }}>Spare Part</option>
+            </select>
+            @error('product_type') <span class="text-red-500">{{ $message }}</span> @enderror
+        </div>
+
         <div class="mb-4">
             <label class="block mb-1">Category</label>
             <select name="category_id" class="w-full border px-3 py-2 rounded">
@@ -29,7 +36,6 @@
             @error('category_id') <span class="text-red-500">{{ $message }}</span> @enderror
         </div>
 
-        <!-- Brand -->
         <div class="mb-4">
             <label class="block mb-1">Brand</label>
             <select name="brand_id" class="w-full border px-3 py-2 rounded">
@@ -43,27 +49,23 @@
             @error('brand_id') <span class="text-red-500">{{ $message }}</span> @enderror
         </div>
 
-        <!-- Description -->
         <div class="mb-4">
             <label class="block mb-1">Description</label>
             <textarea name="description" class="w-full border px-3 py-2 rounded">{{ old('description', $product->description) }}</textarea>
         </div>
 
-        <!-- Price -->
         <div class="mb-4">
             <label class="block mb-1">Price</label>
             <input type="number" name="price" step="0.01" value="{{ old('price', $product->price) }}" class="w-full border px-3 py-2 rounded">
             @error('price') <span class="text-red-500">{{ $message }}</span> @enderror
         </div>
 
-        <!-- Stock -->
         <div class="mb-4">
             <label class="block mb-1">Stock</label>
             <input type="number" name="stock" value="{{ old('stock', $product->stock) }}" class="w-full border px-3 py-2 rounded">
             @error('stock') <span class="text-red-500">{{ $message }}</span> @enderror
         </div>
 
-        <!-- Status -->
         <div class="mb-4">
             <label class="block mb-1">Status</label>
             <select name="status" class="w-full border px-3 py-2 rounded">
@@ -73,7 +75,6 @@
             @error('status') <span class="text-red-500">{{ $message }}</span> @enderror
         </div>
 
-        <!-- Image -->
         <div class="mb-4">
             <label class="block mb-1">Image</label>
             @if($product->image)
@@ -85,7 +86,6 @@
             @error('image') <span class="text-red-500">{{ $message }}</span> @enderror
         </div>
 
-        <!-- Buttons -->
         <div class="mt-6">
             <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Update</button>
             <a href="{{ route('admin.products.index') }}" class="ml-2 text-gray-700">Cancel</a>
